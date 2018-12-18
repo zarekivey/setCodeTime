@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import ExpenseForm from './ExpenseForm'
-import { startAddExpense } from '../actions/expenses'
+import TimeForm from './TimeForm'
+import { startAddTime } from '../actions/times'
 
-export class AddExpensePage extends React.Component { 
-    onSubmit = (expense) => { 
-        this.props.startAddExpense(expense);
+export class AddTimePage extends React.Component { 
+    onSubmit = (time) => { 
+        this.props.startAddTime(time);
         this.props.history.push('/') 
     };
     render() {
@@ -13,11 +13,11 @@ export class AddExpensePage extends React.Component {
                 <div>
                     <div className="page-header">
                         <div className="content-container">
-                            <h1 className="page-header__title">Add Expense</h1>
+                            <h1 className="page-header__title">Add Timer</h1>
                         </div>
                     </div>
                     <div className="content-container">
-                        <ExpenseForm 
+                        <TimeForm 
                             onSubmit={this.onSubmit}
                         /> 
                     </div>
@@ -27,7 +27,7 @@ export class AddExpensePage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    startAddExpense: (expense) => dispatch(startAddExpense(expense))
+    startAddTime: (time) => dispatch(startAddTime(time))
 });
 
-export default connect(undefined, mapDispatchToProps)(AddExpensePage);
+export default connect(undefined, mapDispatchToProps)(AddTimePage);

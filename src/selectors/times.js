@@ -1,12 +1,12 @@
 // Get visible expenses,  This filters the data
 import moment from 'moment';
 
-export default (expenses, { text, sortBy, startDate, endDate, amount }) => {
-    return expenses.filter((expense) => {
-        const createdAtMoment = moment(expense.createdAt)
+export default (times, { text, sortBy, startDate, endDate, amount }) => {
+    return times.filter((time) => {
+        const createdAtMoment = moment(time.createdAt)
         const startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMoment, 'day') : true; // if the startdate is the same or before the created moment by the day, if not then we dont want to filter out that way
         const endDateMatch = endDate ? endDate.isSameOrAfter(createdAtMoment, 'day') : true;
-        const textMatch = expense.description.toLowerCase().includes(text.toLowerCase()); // This is for text that includes what was inputed, and is case sensitive
+        const textMatch = time.description.toLowerCase().includes(text.toLowerCase()); // This is for text that includes what was inputed, and is case sensitive
 
         return startDateMatch && endDateMatch && textMatch; // if all of these are true it will be a visible expense
     }).sort((a, b) => { 

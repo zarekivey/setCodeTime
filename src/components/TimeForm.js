@@ -30,19 +30,11 @@ export default class ExpenseForm extends React.Component {
             this.setState(() => ({ amount }));
         } 
     };
-    onDateChange = (createdAt) => {
-        if (createdAt) { // If theres no created at state then do nothing
-            this.setState(() => ({ createdAt }));
-        } 
-    };
-    onFocusChange = ({ focused }) => {
-        this.setState(() => ({ calendarFocused: focused }))
-    };
     onSubmit = (e) => {
         e.preventDefault(); // SO the page doesnt refresh whenever we update the form 
         
         if (!this.state.description || !this.state.amount) {
-            this.setState(() => ({ error: 'Please enter a description and an amount.'}))
+            this.setState(() => ({ error: 'Please enter a title and a duration.'}))
         } else {
           this.setState(() => ({ error: ''}))
           this.props.onSubmit({ // grabbed from AddExpense
@@ -59,36 +51,27 @@ export default class ExpenseForm extends React.Component {
                 {this.state.error && <p className="form__error">{this.state.error}</p>}
                 <input 
                     type="text"
-                    placeholder="Description"
+                    placeholder="Title"
                     className="text-input"
                     autoFocus
                     value={this.state.description}
                     onChange={this.onDescriptionChange}
                 />
                 <input
-                    type="number"
-                    placeholder="Amount"
+                    placeholder="Time"
                     className="text-input"
                     value={this.state.amount}
                     onChange={this.onAmountChange}
-                />
-                <SingleDatePicker 
-                    date={this.state.createdAt}
-                    onDateChange={this.onDateChange}
-                    focused={this.state.calendarFocused}
-                    onFocusChange={this.onFocusChange}
-                    numberOfMonths={1}
-                    isOutsideRange={() => false} // This makes all days available
                 />
                 <textarea
                     value={this.state.note}
                     className="textarea"
                     onChange={this.setupNoteState}
-                    placeholder="Add a note for your expense (optional)"
+                    placeholder="Add a note for your timer (optional)"
                 >
                 </textarea>
                 <div>
-                    <button className="button">Save Expense</button>
+                    <button className="button">Save Timer</button>
                 </div>
             </form>
         )
