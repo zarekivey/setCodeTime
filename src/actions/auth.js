@@ -11,6 +11,12 @@ export const startLogin = () => {
     };
 };
 
+export const startLoginAnon = () => {
+    return () => {
+        return firebase.auth().signInAnonymously();
+    };
+};
+
 export const logout = () => ({
     type: 'LOGOUT',
 })
