@@ -1,13 +1,15 @@
 .button {
-    background: $light-blue;
+    background: $med-grey;
     border: none;
+    border-radius: 10px;
     color: white;
     display: inline-block;
     font-size: $font-size-l;
     font-weight: 300;
-    line-height: 1;
+    line-height: 0.40;
     padding: $s-size;
     text-decoration: none;
+    font-family: 'Thasadith', sans-serif;
 }
 
 .button--link {
@@ -16,4 +18,9 @@
 
 .button--grey {
     background: #888;
+}
+
+.button--guest {
+    background: none;
+    color: $med-grey;
 }
