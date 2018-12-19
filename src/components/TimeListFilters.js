@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect } from 'react-redux';
-import { setTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate } from '../actions/filters';
+import { setTextFilter, sortByDate, setStartDate, setEndDate } from '../actions/filters';
 
 export class TimeListFilters extends React.Component { 
     onTextChange = (e) => {
@@ -31,7 +31,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     setTextFilter: (text) => dispatch(setTextFilter(text)),
     sortByDate: () => dispatch(sortByDate()),
-    sortByAmount: () => dispatch(sortByAmount()),
     setStartDate: (startDate) => dispatch(setStartDate(startDate)),
     setEndDate: (endDate) => dispatch(setEndDate(endDate))
 });

@@ -9,16 +9,16 @@ export const addTime = (time) => ({
 });
 
 export const startAddTime = ( timeData = {}) => {
-    return (dispatch, getState) => {
+    return (dispatch, getState) => { 
         // Getting the data
         const uid = getState().auth.uid;
         const {
             description = '', 
             note = '', 
-            amount = 0, 
-            createdAt = 0    
+            goal = 0,
+            createdAt = 0 
         } = timeData
-        const time = { description, note, amount, createdAt}
+        const time = { description, note, goal, createdAt }
 
         // Saving the expense object to firebase with the firebase id 
         return database.ref(`users/${uid}/times`).push(time).then((ref) => {
