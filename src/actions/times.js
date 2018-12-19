@@ -16,9 +16,10 @@ export const startAddTime = ( timeData = {}) => {
             description = '', 
             note = '', 
             goal = 0,
-            createdAt = 0 
+            createdAt = 0,
+            clock = 0
         } = timeData
-        const time = { description, note, goal, createdAt }
+        const time = { description, note, goal, createdAt, clock }
 
         // Saving the expense object to firebase with the firebase id 
         return database.ref(`users/${uid}/times`).push(time).then((ref) => {

@@ -3,13 +3,14 @@ import { connect } from 'react-redux'; // This connects components to the store
 import TimeListItem from './TimeListItem';
 import selectTimes from '../selectors/times';
 import Timer from './Timer'
+import uuid from 'uuid'
 
 export const TimeList = (props) => ( 
     <div className="content-container">
         <div className="list-header">
-            <div className="show-for-mobile">Timers</div>
+            <div className="show-for-mobile">Goals</div>
+            <div className="show-for-desktop">Goals</div>
             <div className="show-for-desktop">Timers</div>
-            <div className="show-for-desktop">Goal Time</div>
         </div>
         <div className="list-body">
         {
@@ -19,8 +20,8 @@ export const TimeList = (props) => (
                 </div>
             ) : (
                 props.times.map((time) => {
-                    return  <div>
-                                <TimeListItem key={time.id} {...time} /> <Timer key={time.id} {...time}/> 
+                    return  <div className="list-item list item--items">
+                                <TimeListItem key={time.id} {...time} /> <Timer key={'Clock'} /> 
                             </div>
                 })
         )

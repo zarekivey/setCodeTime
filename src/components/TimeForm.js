@@ -40,7 +40,7 @@ export default class ExpenseForm extends React.Component {
           this.setState(() => ({ error: ''}))
           this.props.onSubmit({ // grabbed from AddExpense
             description: this.state.description,
-            goal: parseFloat(this.state.goal, 10) * 100, // parseFLoat, it keeps the decimals in place and turns it into a real number, * 100 becuase we're working in cents
+            goal: parseFloat(this.state.goal, 10) * 6000, // parseFLoat, it keeps the decimals in place and turns it into a real number, * 100 becuase we're working in cents
             createdAt: this.state.createdAt.valueOf(), // This is a momoent method used to grab the real time
             note: this.state.note
         });
@@ -59,7 +59,7 @@ export default class ExpenseForm extends React.Component {
                     onChange={this.onDescriptionChange}
                 />
                 <input
-                    placeholder="Time"
+                    placeholder="Time (In minutes)"
                     className="text-input"
                     value={this.state.goal}
                     onChange={this.onGoalChange}

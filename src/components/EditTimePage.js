@@ -8,27 +8,27 @@ export class EditTimePage extends React.Component {
         this.props.startEditTime(this.props.time.id, time);
         this.props.history.push('/'); 
 };
-onRemove = () => { 
-    this.props.startRemoveTime({ id: this.props.time.id });
-    this.props.history.push('/');
-}; 
-render() {
-    return (
-            <div>
-                <div className="page-header">
+    onRemove = () => { 
+        this.props.startRemoveTime({ id: this.props.time.id });
+        this.props.history.push('/');
+    }; 
+    render() {
+        return (
+                <div>
+                    <div className="page-header">
+                        <div className="content-container">
+                            <h1 className="page-header__title">Edit Your Timer</h1>
+                        </div>
+                    </div>
                     <div className="content-container">
-                        <h1 className="page-header__title">Edit Your Timer</h1>
+                        <TimeForm
+                            time={this.props.time}
+                            onSubmit={this.onSubmit}
+                        />
+                        <button className="button button--grey" onClick={this.onRemove}>Remove Timer</button>
                     </div>
                 </div>
-                <div className="content-container">
-                    <TimeForm
-                        time={this.props.time}
-                        onSubmit={this.onSubmit}
-                    />
-                    <button className="button button--grey" onClick={this.onRemove}>Remove Timer</button>
-                </div>
-            </div>
-        );
+            );
     }
 };
 
