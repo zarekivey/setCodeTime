@@ -74,7 +74,7 @@ export const startSetTime = () => {
             const times = [];
 
             snapshot.forEach((childSnapshot) => {
-                timess.push({
+                times.push({
                     id: childSnapshot.key,
                     ...childSnapshot.val()
                 });

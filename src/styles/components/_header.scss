@@ -1,19 +1,18 @@
 .header {
-    background: $dark-grey; 
+    background: $med-grey;
 }
 
 .header__content {
-    align-items: center;
     display: flex;
     justify-content: space-between;
-    padding: $s-size 0;
+    padding: $xl-size 0;
 }
 
 .header__title {
     color: white;
     text-decoration: none;
     h1 {
-        font-family: 'Source Serif Pro', Arial, Helvetica;
+        font-family: 'Thasadith', sans-serif;
         margin: 0;
         font-weight: 50
     }
